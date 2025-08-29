@@ -1,0 +1,285 @@
+/* =======================================================
+   Researcher Page Style
+   ======================================================= */
+
+/* 1. 글로벌 스타일 및 변수 */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+:root {
+    --bg-color: #F8F9FA;
+    --card-bg: #FFFFFF;
+    --text-color: #212529;
+    --text-muted: #495057;
+    --accent-color: #4C6EF5;
+    --accent-darker: #364FC7;
+    --accent-light: #EDF2FF;
+    --border-color: #E9ECEF;
+    --shadow-color: rgba(0, 0, 0, 0.06);
+    --font-primary: 'Pretendard', sans-serif;
+}
+
+/* --- 카드 등장 애니메이션 --- */
+@keyframes cardFadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ▼▼▼ 수정: 푸터 하단 흰색 공간 제거를 위한 설정 1/2 ▼▼▼ */
+html {
+    height: 100%;
+}
+
+/* ▼▼▼ 수정: 푸터 하단 흰색 공간 제거를 위한 설정 2/2 ▼▼▼ */
+body {
+    font-family: var(--font-primary);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.7;
+    word-break: keep-all;
+    
+    display: flex;
+    flex-direction: column;
+    min-height: 100%; /* 100vh 대신 100%를 사용하여 html 태그와 연동 */
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* 2. 레이아웃 */
+.container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.header {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.75rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-link {
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size:1.5rem;
+    margin-left: 1.75rem;
+    padding: 0.5rem;
+    border-radius: 6px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link:focus {
+    color: var(--accent-color);
+    background-color: var(--accent-light);
+}
+
+main.main {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    flex: 1; 
+}
+
+.footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: auto; 
+    background-color: #343a40;
+    color: #adb5bd;
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+.footer strong {
+    color: #f8f9fa;
+}
+
+/* 3. 페이지 콘텐츠 스타일 */
+.btn-area {
+    text-align: right;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.btn {
+    font-weight: 600;
+    display: inline-block;
+    border: 1px solid transparent;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    background: var(--accent-color);
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+.btn:hover {
+    background-color: var(--accent-darker);
+    transform: translateY(-2px);
+}
+
+.section-block {
+    margin-bottom: 4rem;
+}
+
+.section-block h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 3px solid var(--accent-light);
+    display: inline-block;
+}
+
+/* ▼▼▼ 수정: 해상도와 상관없이 항상 4열로 고정 ▼▼▼ */
+.card-list {
+    display: grid;
+    /* 4개의 동일한 너비의 열을 생성합니다. */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 1.5rem;
+}
+
+.grade-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* 4. 연구원 카드 디자인 */
+.researcher-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    animation: cardFadeIn 0.5s ease-out forwards;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.researcher-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.researcher-card-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 1.25rem;
+    border: 4px solid var(--accent-light);
+    flex-shrink: 0;
+    background-color: var(--bg-color);
+}
+.researcher-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.researcher-no-photo {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.researcher-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.researcher-info h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 0.25rem;
+}
+.researcher-info p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.badge {
+    display: inline-block;
+    background-color: var(--accent-light);
+    color: var(--accent-darker);
+    padding: 0.3rem 0.7rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin: 0.25rem;
+}
+
+.admin-buttons {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.btn-sm {
+    background-color: var(--bg-color);
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+    font-weight: 500;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    border-radius: 6px;
+}
+.btn-sm:hover {
+    border-color: var(--text-muted);
+    color: var(--text-color);
+    background-color: #f1f3f5;
+}
+.btn-delete:hover {
+    border-color: #D94848;
+    color: #D94848;
+    background-color: #FFF5F5;
+}
+
+.no-data, .error {
+    padding: 2rem;
+    text-align: center;
+    color: var(--text-muted);
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    border: 1px dashed var(--border-color);
+}

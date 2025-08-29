@@ -1,0 +1,238 @@
+/* =======================================================
+    Activities Add Page Style
+   ======================================================= */
+
+/* 1. 글로벌 스타일 및 변수 (기존 CSS와 동일) */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+:root {
+    --bg-color: #F8F9FA;
+    --card-bg: #FFFFFF;
+    --text-color: #212529;
+    --text-muted: #495057;
+    --accent-color: #4C6EF5;
+    --accent-darker: #364FC7; 
+    --accent-light: #EDF2FF;
+    --border-color: #DEE2E6;
+    --shadow-color: rgba(0, 0, 0, 0.06);
+    --font-primary: 'Pretendard', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.7; 
+    word-break: keep-all;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* 2. 레이아웃 (기존 CSS와 동일) */
+.container {
+    max-width: 800px;
+    margin: 0 auto; 
+    padding: 0 1.5rem;
+}
+
+.header {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.75rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-link {
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-left: 1.75rem;
+    padding: 0.5rem;
+    border-radius: 6px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link:focus {
+    color: var(--accent-color);
+    background-color: var(--accent-light);
+}
+
+main.container {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+/* 3. 폼 스타일 */
+.form-container {
+    background: var(--card-bg);
+    padding: 2.5rem 3rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+.main-title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.form-section {
+    border-top: 1px solid var(--border-color);
+    margin-top: 2.5rem;
+    padding-top: 2.5rem;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--accent-darker);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-muted);
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background-color: #fff;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="date"]:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px var(--accent-light);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.form-row {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+/* --- 참가자 블록 스타일 --- */
+.author-block {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.author-header h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+/* --- 버튼 스타일 --- */
+.form-actions {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.btn {
+    font-weight: 600;
+    display: inline-block;
+    border: 1px solid transparent;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+}
+
+.btn-primary {
+    background: var(--accent-color);
+    color: #fff;
+}
+.btn-primary:hover {
+    background-color: var(--accent-darker);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: #20C997;
+    color: white;
+    margin-top: -0.5rem; /* 위치 조정 */
+    margin-bottom: 1.5rem;
+}
+.btn-secondary:hover {
+    background-color: #12B886;
+}
+
+.btn-tertiary {
+    background-color: #E9ECEF;
+    color: var(--text-muted);
+}
+.btn-tertiary:hover {
+    background-color: #CED4DA;
+}
+
+/* 4. 반응형 디자인 */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 2rem 1.5rem;
+    }
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
