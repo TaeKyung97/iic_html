@@ -32,7 +32,7 @@
 <body>
     <header class="header">
         <div class="container">
-            <a href="index.jsp"><img src="photo/iic.png" alt="IIC Lab Logo" class="logo"></a>
+            <a href="index.jsp"><img src="photo/iic_main.png" alt="IIC Lab Logo" class="logo"></a>
             <nav class="nav">
                 <a href="professor.jsp" class="nav-link">담당 교수</a>
                 <a href="#about" class="nav-link">연구실 소개</a>
@@ -90,7 +90,7 @@
                 </div>
                 <div class="research-item">
                     <div class="research-text">
-                        <h3>클라우드 컴퓨팅</h3>
+                        <h3>클라우드/엣지 컴퓨팅</h3>
                         <p>분산 컴퓨팅 아키텍처, 클라우드 기반 인프라 구축 및 운영, 대규모 데이터의 효율적인 처리 및 분석 기술을 연구하여 확장성 높은 서비스를 제공합니다.</p>
                     </div>
                     <div class="research-card">
